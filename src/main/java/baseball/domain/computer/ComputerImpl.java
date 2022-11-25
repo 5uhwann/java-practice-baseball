@@ -12,6 +12,12 @@ public class ComputerImpl implements Computer {
 
     @Override
     public RandomNumbers generateRandomNumber() {
-        return new RandomNumbers(randomNumberGenerator.generateRandomNumbers());
+        randomNumbers = new RandomNumbers(randomNumberGenerator.generateRandomNumbers());
+        return randomNumbers;
+    }
+
+    @Override
+    public BaseballResult generateBaseballResult(String baseballInput) {
+        return new BaseballResult(new BaseballResultMaker(baseballInput).makeResult(randomNumbers));
     }
 }
