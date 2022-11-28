@@ -1,7 +1,9 @@
-package baseball.domain.computer;
+package baseball.domain.result;
 
 import static baseball.domain.computer.BallAndStrike.*;
 
+import baseball.domain.computer.BallAndStrike;
+import baseball.domain.computer.RandomNumbers;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,5 +1,6 @@
-package baseball.domain.computer;
+package baseball.domain.result;
 
+import baseball.domain.computer.BallAndStrike;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

@@ -2,6 +2,7 @@ package baseball.domain.computer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import baseball.domain.result.BaseballResultMaker;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
