@@ -31,4 +31,24 @@ class UserImplTest {
         assertThat(result).isEqualTo(baseballInput);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"123", "RR", "RQ", "r"})
+    @DisplayName("게임 재시작 여부 입력 시 'R', 'Q' 한 문자 외의 다른 것을 입력하면 에러가 발생한다.")
+    void failValidateGameCommandTest(String gameCommandInput) {
+        //given //when //then
+        assertThatThrownBy(() -> {
+            user.submitGameCommand(gameCommandInput);
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"R", "Q"})
+    @DisplayName("게임 재시작 여부 입력 시 'R', 'Q' 중 한 문자를 입력해야 한다.")
+    void successValidateGameCommandTest(String gameCommandInput) {
+        //given //when
+        String result = user.submitGameCommand(gameCommandInput);
+
+        // then
+        assertThat(result).isEqualTo(gameCommandInput);
+    }
 }
