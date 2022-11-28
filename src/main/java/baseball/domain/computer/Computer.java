@@ -1,10 +1,10 @@
 package baseball.domain.computer;
 
-import baseball.domain.result.BaseballResult;
+import baseball.domain.result.BaseballResultDto;
 
 public interface Computer {
 
     RandomNumbers generateRandomNumber();
 
-    BaseballResult generateBaseballResult(String baseballInput);
+    BaseballResultDto generateBaseballResult(String baseballInput);
 }

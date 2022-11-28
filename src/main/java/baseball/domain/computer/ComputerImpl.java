@@ -1,6 +1,7 @@
 package baseball.domain.computer;
 
 import baseball.domain.result.BaseballResult;
+import baseball.domain.result.BaseballResultDto;
 import baseball.domain.result.BaseballResultMaker;
 
 public class ComputerImpl implements Computer {
@@ -16,7 +17,10 @@ public class ComputerImpl implements Computer {
     }
 
     @Override
-    public BaseballResult generateBaseballResult(String baseballInput) {
-        return new BaseballResult(new BaseballResultMaker(baseballInput).makeResult(randomNumbers));
+    public BaseballResultDto generateBaseballResult(String baseballInput) {
+        BaseballResult baseballResult = new BaseballResult(
+                new BaseballResultMaker(baseballInput).makeResult(randomNumbers));
+
+        return new BaseballResultDto(baseballResult);
     }
 }
