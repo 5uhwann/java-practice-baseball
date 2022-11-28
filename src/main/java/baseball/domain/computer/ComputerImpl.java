@@ -2,17 +2,13 @@ package baseball.domain.computer;
 
 public class ComputerImpl implements Computer {
 
-    private final RandomNumberGenerator randomNumberGenerator;
+    private static final RandomNumberGenerator RANDOM_NUMBER_GENERATOR = new RandomNumberGenerator();
 
     private RandomNumbers randomNumbers;
 
-    public ComputerImpl(RandomNumberGenerator randomNumberGenerator) {
-        this.randomNumberGenerator = randomNumberGenerator;
-    }
-
     @Override
     public RandomNumbers generateRandomNumber() {
-        randomNumbers = new RandomNumbers(randomNumberGenerator.generateRandomNumbers());
+        randomNumbers = new RandomNumbers(RANDOM_NUMBER_GENERATOR.generateRandomNumbers());
         return randomNumbers;
     }
 

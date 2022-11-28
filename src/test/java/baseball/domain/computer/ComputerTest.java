@@ -12,7 +12,7 @@ class ComputerTest {
     @DisplayName("랜덤 숫자 생성 시 서로다른 3자리 숫자를 생성한다.")
     void generateRandomNumberTest() {
         //given
-        Computer computer = new ComputerImpl(new RandomNumberGenerator());
+        Computer computer = new ComputerImpl();
 
         //when
         RandomNumbers randomNumbers = computer.generateRandomNumber();
