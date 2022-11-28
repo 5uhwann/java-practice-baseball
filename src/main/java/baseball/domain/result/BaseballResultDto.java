@@ -8,13 +8,19 @@ import java.util.List;
 public class BaseballResultDto {
 
     private final String resultDto;
+    private final boolean isSuccess;
 
     public BaseballResultDto(BaseballResult baseballResult) {
         this.resultDto = translateResult(baseballResult);
+        this.isSuccess = isSuccess(baseballResult);
     }
 
     public String getResultDto() {
         return resultDto;
+    }
+
+    public boolean isSuccess() {
+        return isSuccess;
     }
 
     private String translateResult(BaseballResult baseballResult) {
@@ -43,5 +49,13 @@ public class BaseballResultDto {
             return "";
         }
         return strikeCount + strike.getKoreanTag();
+    }
+
+    private boolean isSuccess(BaseballResult baseballResult) {
+        List<BallAndStrike> result = baseballResult.getBaseballResult();
+        int strikeCount = (int) result.stream()
+                .filter(strikeResult -> strikeResult == strike)
+                .count();
+        return strikeCount == 3;
     }
 }
